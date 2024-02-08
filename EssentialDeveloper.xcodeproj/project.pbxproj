@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D357D872B741F2E00606253 /* EssentialDeveloper.docc in Sources */ = {isa = PBXBuildFile; fileRef = 1D357D862B741F2E00606253 /* EssentialDeveloper.docc */; };
 		1D357D8D2B741F2E00606253 /* EssentialDeveloper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D357D822B741F2E00606253 /* EssentialDeveloper.framework */; };
 		1D357D922B741F2E00606253 /* EssentialDeveloperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D357D912B741F2E00606253 /* EssentialDeveloperTests.swift */; };
 		1D357D932B741F2E00606253 /* EssentialDeveloper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D357D852B741F2E00606253 /* EssentialDeveloper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D357D9D2B757C4D00606253 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D357D9C2B757C4D00606253 /* FeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +26,9 @@
 /* Begin PBXFileReference section */
 		1D357D822B741F2E00606253 /* EssentialDeveloper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialDeveloper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D357D852B741F2E00606253 /* EssentialDeveloper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialDeveloper.h; sourceTree = "<group>"; };
-		1D357D862B741F2E00606253 /* EssentialDeveloper.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = EssentialDeveloper.docc; sourceTree = "<group>"; };
 		1D357D8C2B741F2E00606253 /* EssentialDeveloperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialDeveloperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D357D912B741F2E00606253 /* EssentialDeveloperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialDeveloperTests.swift; sourceTree = "<group>"; };
+		1D357D9C2B757C4D00606253 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				1D357D852B741F2E00606253 /* EssentialDeveloper.h */,
-				1D357D862B741F2E00606253 /* EssentialDeveloper.docc */,
+				1D357D9C2B757C4D00606253 /* FeedItem.swift */,
 			);
 			path = EssentialDeveloper;
 			sourceTree = "<group>";
@@ -147,6 +147,7 @@
 				TargetAttributes = {
 					1D357D812B741F2E00606253 = {
 						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
 					};
 					1D357D8B2B741F2E00606253 = {
 						CreatedOnToolsVersion = 15.2;
@@ -194,7 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D357D872B741F2E00606253 /* EssentialDeveloper.docc in Sources */,
+				1D357D9D2B757C4D00606253 /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +345,7 @@
 		1D357D972B741F2E00606253 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -368,6 +370,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -375,6 +378,7 @@
 		1D357D982B741F2E00606253 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -406,6 +410,7 @@
 		1D357D9A2B741F2E00606253 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 26D65H4NM7;
@@ -421,6 +426,7 @@
 		1D357D9B2B741F2E00606253 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 26D65H4NM7;
