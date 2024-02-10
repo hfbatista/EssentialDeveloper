@@ -38,17 +38,43 @@ public final class RemoteFeedLoader {
 	public func load(completion: @escaping (Result) -> Void) {
 		client.get(from: url) { result in
 			switch result {
-				case let .success(data, _):
-					if let json = try? JSONSerialization.jsonObject(with: data) {
-						print(json)
-						completion(.success([]))
-					} else {
+				case let .success(data, response):
+					do {
+						let items = try FeedItemsMapper.map(data, response)
+						completion(.success(items))
+					} catch {
 						completion(.failure(.invalidData))
 					}
 				case .failure:
 					completion(.failure(.connectivity))
 			}
 		}
+	}
+}
+
+private class FeedItemsMapper {
+	private struct Root: Decodable {
+		let items: [ApiFeedItem]
+	}
+	
+	private struct ApiFeedItem: Decodable {
+		let id: UUID
+		let description: String?
+		let location: String?
+		let image: URL
+		
+		var item: FeedItemModel {
+			return FeedItemModel(id: id, description: description, location: location, imageURL: image)
+		}
+	}
+	
+	static func map(_ data: Data, _ response: HTTPURLResponse) throws -> [FeedItemModel] {
+		guard response.statusCode == 200 else {
+			throw RemoteFeedLoader.Error.invalidData
+		}
+		
+		let root = try JSONDecoder().decode(Root.self, from: data)
+		return root.items.map({ $0.item })
 	}
 }
 
