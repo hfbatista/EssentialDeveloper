@@ -62,8 +62,22 @@ final class HTTPClientTests: XCTestCase {
 				
 	}
 	
-	func test_getFromURL_failsOnAllNilValues() {
+	func test_getFromURL_failsOnAllInvalidRepresentationCases() {
+		let anyData = Data("any Data".utf8)
+		let anyError = NSError(domain: "any error", code: 0)
+		let nonHTTPURLResponse = URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+		let anyHTTPURLResponse = HTTPURLResponse(url: anyURL(), statusCode: 200, httpVersion: nil, headerFields: nil)
+		
 		XCTAssertNotNil(resultErrorFor(data: nil, response: nil, error: nil))
+		XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse, error: nil))
+		XCTAssertNotNil(resultErrorFor(data: nil, response: anyHTTPURLResponse, error: nil))
+		XCTAssertNotNil(resultErrorFor(data: anyData, response: nil, error: nil))
+		XCTAssertNotNil(resultErrorFor(data: anyData, response: nil, error: anyError))
+		XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse, error: anyError))
+		XCTAssertNotNil(resultErrorFor(data: nil, response: anyHTTPURLResponse, error: anyError))
+		XCTAssertNotNil(resultErrorFor(data: anyData, response: nonHTTPURLResponse, error: anyError))
+		XCTAssertNotNil(resultErrorFor(data: anyData, response: anyHTTPURLResponse, error: anyError))
+		XCTAssertNotNil(resultErrorFor(data: anyData, response: nonHTTPURLResponse, error: nil))
 	}
 	
 	//MARK: - Helpers
@@ -78,7 +92,7 @@ final class HTTPClientTests: XCTestCase {
 		URL(string: "http://any-url.com")!
 	}
 	
-	private func resultErrorFor(data: Data?, response: HTTPURLResponse?, error: Error?,file: StaticString = #filePath, line: UInt = #line) -> Error? {
+	private func resultErrorFor(data: Data?, response: URLResponse?, error: Error?,file: StaticString = #filePath, line: UInt = #line) -> Error? {
 		URLProtocolStub.stub(data: data, response: response, error: error)
 		let sut = makeSTU(file: file, line: line)
 		let exp = expectation(description: "Wait for completion")
@@ -105,11 +119,11 @@ final class HTTPClientTests: XCTestCase {
 		
 		private struct StubModel {
 			let data: Data?
-			let response: HTTPURLResponse?
+			let response: URLResponse?
 			let error: Error?
 		}
 		
-		static func stub(data: Data?, response: HTTPURLResponse?, error: Error?) {
+		static func stub(data: Data?, response: URLResponse?, error: Error?) {
 			stub = StubModel(data: data, response: response, error: error)
 		}
 		
