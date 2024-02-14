@@ -43,6 +43,7 @@
 		1D357DAA2B77BDCA00606253 /* HTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientTests.swift; sourceTree = "<group>"; };
 		1D357DAD2B785D3900606253 /* XCTestCase+MemoryLeakTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracker.swift"; sourceTree = "<group>"; };
 		1D357DAF2B7C39D800606253 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		1D357DB12B7C3BD500606253 /* EssentialDeveloper.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialDeveloper.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 		1D357D782B741F2E00606253 = {
 			isa = PBXGroup;
 			children = (
+				1D357DB12B7C3BD500606253 /* EssentialDeveloper.xctestplan */,
 				1D357D842B741F2E00606253 /* EssentialDeveloper */,
 				1D357D902B741F2E00606253 /* EssentialDeveloperTests */,
 				1D357D832B741F2E00606253 /* Products */,
