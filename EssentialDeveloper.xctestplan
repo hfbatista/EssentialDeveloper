@@ -9,11 +9,19 @@
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:EssentialDeveloper.xcodeproj",
+          "identifier" : "1D357D812B741F2E00606253",
+          "name" : "EssentialDeveloper"
+        }
+      ]
+    },
     "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:EssentialDeveloper.xcodeproj",
         "identifier" : "1D357D8B2B741F2E00606253",
