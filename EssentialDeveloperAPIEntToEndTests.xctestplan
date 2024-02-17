@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "F462A892-1711-4EE5-A37E-EF4063360E8C",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EssentialDeveloper.xcodeproj",
+        "identifier" : "1D357DB52B7D73A200606253",
+        "name" : "EssentialDeveloperAPIEntToEndTests"
+      }
+    }
+  ],
+  "version" : 1
+}
